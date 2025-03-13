@@ -1,0 +1,135 @@
+:root {
+  --pink-color: #ff0469f7;
+  --skin-color: #d9c08d;
+  --blue-color: #092327;
+  --simple-font: "Cabin Sketch", sans-serif;
+  --cursive-font: "WindSong", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #0d353b, #fdf9c9);
+}
+
+.imos {
+  position: absolute;
+}
+
+.imos img {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+}
+
+#flower {
+  top: 35%;
+  left: 24%;
+}
+
+#strawberry {
+  top: 46%;
+  right: 25%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: var(--simple-font);
+  font-weight: 700;
+  font-size: 4rem;
+  color: var(--skin-color);
+}
+
+h3 {
+  font-family: var(--cursive-font);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  color: var(--pink-color);
+}
+
+.wrapper {
+  margin: 10px;
+}
+
+#start-btn {
+  display: block;
+  width: 150px;
+  height: 39px;
+  line-height: 33px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50px;
+  border: 3px solid var(--skin-color);
+  color: var(--skin-color);
+  font-size: 1.1rem;
+  font-family: var(--simple-font);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  transition: all 0.35s;
+}
+
+#start-btn:before,
+#start-btn:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: var(--skin-color);
+  z-index: -1;
+  transition: all 0.35s;
+}
+
+#start-btn:before {
+  opacity: 0.5;
+}
+
+#start-btn:after {
+  transition-delay: 0.2s;
+}
+
+#start-btn:hover {
+  color: var(--pink-color);
+}
+
+#start-btn:hover:before,
+#start-btn:hover:after {
+  top: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 30px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: var(--simple-font);
+  color: var(--blue-color);
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--blue-color);
+}
+
+.footer i {
+  color: var(--pink-color);
+}

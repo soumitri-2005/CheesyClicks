@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Booth</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background: #222; color: white; }
+        .video-container { position: relative; display: inline-block; }
+        video { width: 100%; max-width: 400px; border-radius: 10px; }
+        .countdown { 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+        }
+        .buttons { margin: 10px; }
+        .error-message { color: red; margin-top: 10px; }
+        .filter-options { margin: 10px; }
+        .filter-btn { margin: 5px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Photo Booth</h1>
+    <div class="video-container">
+        <video id="video" autoplay></video>
+        <div id="countdown" class="countdown"></div>
+    </div>
+    <div class="buttons">
+        <button id="capture">Capture</button>
+        <button id="review" disabled>Review</button>
+    </div>
+    <div class="filter-options">
+        <button class="filter-btn" data-filter="grayscale(100%)">Black & White</button>
+        <button class="filter-btn" data-filter="sepia(70%)">90's</button>
+        <button class="filter-btn" data-filter="contrast(150%) saturate(120%)">Cinematic</button>
+        <button id="mirror-btn" class="filter-btn">Mirror</button>
+    </div>
+    <p id="error" class="error-message"></p>
+    
+    <script>
+        const video = document.getElementById('video');
+        const captureBtn = document.getElementById('capture');
+        const reviewBtn = document.getElementById('review');
+        const errorMsg = document.getElementById('error');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const mirrorBtn = document.getElementById('mirror-btn');
+        const countdownDisplay = document.getElementById('countdown');
+        let photos = [];
+        let currentFilters = [];
+        let isMirrored = false;
+        
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => video.srcObject = stream)
+                .catch(err => {
+                    console.error("Error accessing camera:", err);
+                    errorMsg.textContent = "Failed to access camera. Please check your permissions or try a different browser.";
+                });
+        } else {
+            errorMsg.textContent = "Camera access is not supported in this browser.";
+        }
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                if (currentFilters.includes(filter)) {
+                    currentFilters = currentFilters.filter(f => f !== filter);
+                } else {
+                    currentFilters.push(filter);
+                }
+                applyFilters();
+            });
+        });
+        
+        mirrorBtn.addEventListener('click', () => {
+            isMirrored = !isMirrored;
+            applyFilters();
+        });
+        
+        function applyFilters() {
+            video.style.filter = currentFilters.join(' ');
+            video.style.transform = isMirrored ? 'scaleX(-1)' : 'none';
+        }
+        
+        captureBtn.addEventListener('click', () => {
+            let count = 3;
+            countdownDisplay.style.display = 'block';
+            countdownDisplay.textContent = count;
+            
+            const countdownInterval = setInterval(() => {
+                count--;
+                if (count === 0) {
+                    countdownDisplay.textContent = 'Say Cheese!';
+                } else {
+                    countdownDisplay.textContent = count;
+                }
+            }, 1000);
+            
+            setTimeout(() => {
+                clearInterval(countdownInterval);
+                countdownDisplay.style.display = 'none';
+                takePhoto();
+            }, 4000);
+        });
+        
+        function takePhoto() {
+            if (photos.length < 3) {
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth || 400;
+                canvas.height = video.videoHeight || 300;
+                const ctx = canvas.getContext('2d');
+                ctx.filter = currentFilters.join(' ');
+                if (isMirrored) {
+                    ctx.scale(-1, 1);
+                    ctx.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+                } else {
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                }
+                
+                const img = new Image();
+                img.src = canvas.toDataURL('image/png');
+                photos.push(img.src);
+                
+                if (photos.length === 3) {
+                    reviewBtn.disabled = false;
+                }
+            }
+        }
+        
+        reviewBtn.addEventListener('click', () => {
+            sessionStorage.setItem('photos', JSON.stringify(photos));
+            window.location.href = 'review.html';
+        });
+    </script>
+</body>
+</html>

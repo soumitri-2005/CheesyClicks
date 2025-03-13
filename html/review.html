@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Photos</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background: #f8f8f8; color: black; }
+        .photo-strip { 
+            width: 200px; 
+            padding: 10px; 
+            background: #d2b48c; /* Default frame color */
+            margin: auto; 
+            border-radius: 10px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .photo-strip img { width: 100%; margin-bottom: 5px; }
+        .color-options { display: flex; justify-content: center; margin-top: 10px; }
+        .color-btn {
+            width: 30px; height: 30px; border-radius: 50%;
+            margin: 5px; cursor: pointer; border: none;
+        }
+        .controls { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Customize Your Photo</h1>
+    <div class="photo-strip" id="photo-strip">
+        <img id="photo1" src="" alt="Photo 1">
+        <img id="photo2" src="" alt="Photo 2">
+        <img id="photo3" src="" alt="Photo 3">
+    </div>
+    <div class="color-options">
+        <button class="color-btn" style="background: pink;" onclick="changeFrameColor('pink')"></button>
+        <button class="color-btn" style="background: lightblue;" onclick="changeFrameColor('lightblue')"></button>
+        <button class="color-btn" style="background: lightyellow;" onclick="changeFrameColor('lightyellow')"></button>
+        <button class="color-btn" style="background: olive;" onclick="changeFrameColor('olive')"></button>
+        <button class="color-btn" style="background: purple;" onclick="changeFrameColor('purple')"></button>
+        <button class="color-btn" style="background: burlywood;" onclick="changeFrameColor('burlywood')"></button>
+        <button class="color-btn" style="background: darkred;" onclick="changeFrameColor('darkred')"></button>
+        <button class="color-btn" style="background: black;" onclick="changeFrameColor('black')"></button>
+        <button class="color-btn" style="background: white; border: 1px solid black;" onclick="changeFrameColor('white')"></button>
+    </div>
+    <div class="controls">
+        <button onclick="goBack()">Retake</button>
+        <button onclick="downloadStrip()">Download</button>
+    </div>
+    
+    <script>
+        const photos = JSON.parse(sessionStorage.getItem('photos')) || [];
+        document.getElementById('photo1').src = photos[0] || '';
+        document.getElementById('photo2').src = photos[1] || '';
+        document.getElementById('photo3').src = photos[2] || '';
+        
+        function changeFrameColor(color) {
+            document.getElementById('photo-strip').style.background = color;
+        }
+        
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+        
+        function downloadStrip() {
+            const strip = document.getElementById('photo-strip');
+            html2canvas(strip).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'photo-strip.png';
+                link.click();
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
