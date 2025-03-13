@@ -1,4 +1,4 @@
-const startBtn = document.querySelector(".wrapper");
+const startBtn = document.querySelector("#start-btn");
 
 function startApp() {
   window.location.href = "index.html";
