@@ -110,6 +110,7 @@ video {
 }
 
 .error-message {
+  font-family: var(--simple-font);
   color: var(--pink-color);
   margin-top: 10px;
 }

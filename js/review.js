@@ -7,8 +7,10 @@ document.getElementById('photo3').src = photos[2] || '';
 // Add event listeners to color buttons
 document.querySelectorAll('.color-btn').forEach(button => {
     button.addEventListener('click', () => {
-        const color = button.style.backgroundColor;
-        document.getElementById('photo-strip').style.background = color;
+        const backColor = button.style.backgroundColor;
+        const color = button.style.color;
+        document.getElementById('photo-strip').style.color = color;
+        document.getElementById('photo-strip').style.background = backColor;
     });
 });
 
@@ -23,7 +25,7 @@ document.getElementById('download-btn').addEventListener('click', () => {
     html2canvas(strip).then(canvas => {
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
-        link.download = 'photo-strip.png';
+        link.download = 'CheesyClicks-photo-strip.png';
         link.click();
     });
 });
