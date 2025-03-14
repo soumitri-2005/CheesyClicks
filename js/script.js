@@ -15,7 +15,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     .then((stream) => (video.srcObject = stream))
     .catch((err) => {
       console.error("Error accessing camera:", err);
-      errorMsg.textContent =
+      errorMsg.textContent =qw13
         "Failed to access camera. Please check your permissions or try a different browser.";
     });
 } else {
@@ -46,24 +46,38 @@ function applyFilters() {
 
 captureBtn.addEventListener("click", () => {
   let count = 3;
-  countdownDisplay.style.display = "block";
-  countdownDisplay.textContent = count;
+  let captureCount = 0; // Track the number of photos taken
 
-  const countdownInterval = setInterval(() => {
-    count--;
-    if (count === 0) {
-      countdownDisplay.textContent = "Say Cheese!";
-    } else {
-      countdownDisplay.textContent = count;
-    }
-  }, 1000);
+  function startCountdown() {
+    if (captureCount >= 3) return; // Stop after 3 photos
 
-  setTimeout(() => {
-    clearInterval(countdownInterval);
-    countdownDisplay.style.display = "none";
-    takePhoto();
-  }, 4000);
+    countdownDisplay.style.display = "block";
+    countdownDisplay.textContent = count;
+
+    const countdownInterval = setInterval(() => {
+      count--;
+      if (count === 0) {
+        countdownDisplay.textContent = "Say Cheese!";
+      } else {
+        countdownDisplay.textContent = count;
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      clearInterval(countdownInterval);
+      countdownDisplay.style.display = "none";
+      takePhoto();
+      captureCount++;
+      count = 3; // Reset countdown
+
+      // Start the next capture after a short delay
+      setTimeout(startCountdown, 1000);
+    }, 4000);
+  }
+
+  startCountdown(); // Start the automatic photo-taking process
 });
+
 
 function takePhoto() {
   if (photos.length < 3) {

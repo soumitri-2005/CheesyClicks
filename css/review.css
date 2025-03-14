@@ -50,6 +50,31 @@ body {
   flex-direction: column;
   align-items: center;
   box-shadow: 12px 12px rgba(0, 0, 0, 0.577);
+  position: relative;
+  animation: dropBounce 1.5s ease-in-out;
+}
+
+@keyframes dropBounce {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px); /* First bounce */
+  }
+  70% {
+    transform: translateY(0px);
+  }
+  85% {
+    transform: translateY(-10px); /* Second bounce */
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .photo-strip p {
