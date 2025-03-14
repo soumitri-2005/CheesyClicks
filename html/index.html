@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Booth</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=WindSong:wght@400;500&display=swap"
       rel="stylesheet"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="imos" id="flower">
-        <img src="../images/daisy-flower.png" alt="" />
-      </div>
-      <div class="imos" id="strawberry">
-        <img src="../images/strawberry.png" alt="" />
-      </div>
+      <img src="../images/daisy-flower.png" alt="" />
+    </div>
+    <div class="imos" id="strawberry">
+      <img src="../images/strawberry.png" alt="" />
+    </div>
 
     <div class="camera-option">
-        <div class="video-container">
-            <video id="video" autoplay></video>
-            <div id="countdown" class="countdown"></div>
-        </div>
-        <div class="buttons">
-            <button id="capture"><i class="fa-solid fa-camera"></i></button>
-            <button id="review" disabled><i class="fa-solid fa-thumbs-up"></i></button>
-        </div>
+      <div class="video-container">
+        <video id="video" autoplay></video>
+        <div id="countdown" class="countdown"></div>
+      </div>
+      <div class="buttons">
+        <button id="capture"><i class="fa-solid fa-camera"></i></button>
+        <button id="review" disabled>
+          <i class="fa-solid fa-thumbs-up"></i>
+        </button>
+      </div>
     </div>
 
     <div class="filter-option">
-        <div class="filter-message">
-            <p>Choose</p>
-            <p id="second">Filters!</p>
-        </div>
-        <div class="filter-options">
-            <button class="filter-btn" data-filter="grayscale(100%)">black & white</button>
-            <button class="filter-btn" data-filter="sepia(70%)">90's</button>
-            <button class="filter-btn" data-filter="contrast(150%) saturate(120%)">Cinematic</button>
-            <button id="mirror-btn" class="filter-btn">mirror</button>
-        </div>
+      <div class="filter-message">
+        <p>Choose</p>
+        <p id="second">Filters!</p>
+      </div>
+      <div class="filter-options">
+        <button class="filter-btn" data-filter="grayscale(100%)">
+          black & white
+        </button>
+        <button class="filter-btn" data-filter="sepia(70%)">90's</button>
+        <button class="filter-btn" data-filter="contrast(150%) saturate(120%)">
+          Cinematic
+        </button>
+        <button id="mirror-btn" class="filter-btn">mirror</button>
+      </div>
     </div>
     <p id="error" class="error-message"></p>
     <script src="../js/script.js"></script>
-</body>
+  </body>
 </html>

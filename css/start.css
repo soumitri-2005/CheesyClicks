@@ -36,13 +36,13 @@ body {
 
 @keyframes scaleAndMove {
   0% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
   50% {
-      transform: translateY(-10px); /* Move up */
+    transform: translateY(-10px); /* Move up */
   }
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
