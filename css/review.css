@@ -43,7 +43,7 @@ body {
 
 .photo-strip {
   width: 270px;
-  padding: 10px;
+  padding: 12px;
   background: #d2b48c;
   margin: auto;
   display: flex;
@@ -56,12 +56,12 @@ body {
     font-family: var(--cursive-font);
     font-weight: 700;
     font-size: 1rem;
-    padding: 15px;
+    padding: 11px;
   }
 
 .photo-strip img {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .color-options {
@@ -102,4 +102,22 @@ body {
 .controls button:hover {
     background: var(--skin-color);
     color: var(--pink-color);
+}
+
+.footer {
+  margin-top: 13px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: var(--simple-font);
+  color: var(--blue-color);
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--skin-color);
+  cursor: pointer;
+}
+
+.footer i {
+  color: var(--pink-color);
 }
