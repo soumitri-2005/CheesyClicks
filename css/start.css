@@ -31,15 +31,28 @@ body {
   height: 30px;
   width: 30px;
   object-fit: cover;
+  animation: scaleAndMove 2s infinite ease-in-out;
+}
+
+@keyframes scaleAndMove {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px); /* Move up */
+  }
+  100% {
+      transform: translateY(0);
+  }
 }
 
 #flower {
-  top: 35%;
+  top: 37%;
   left: 24%;
 }
 
 #strawberry {
-  top: 46%;
+  top: 48%;
   right: 25%;
 }
 

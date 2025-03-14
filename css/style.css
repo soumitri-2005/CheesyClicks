@@ -14,6 +14,7 @@
 }
 
 body {
+    position: relative;
     height: 100vh;
     width: 100%;
     background: radial-gradient(circle at center, #0d353b, #fdf9c9);
@@ -21,6 +22,26 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+
+.imos {
+    position: absolute;
+}
+
+.imos img {
+    height: 21px;
+    width: 21px;
+    object-fit: cover;
+}
+
+#strawberry {
+    top: 38%;
+    right: 26%;
+}
+
+#flower {
+    top: 59%;
+    right: 37.5%;
 }
 
 .camera-option {
@@ -146,6 +167,19 @@ video {
     font-family: var(--cursive-font);
     margin-top: -17px;
     margin-right: -7px;
-    color: var(--pink-color);
+    color: var(--blue-color);
     text-shadow: 2px 2px 8px var(--blue-color);
+    animation:  neonGlow 1.5s infinite alternate;
 }
+
+    @keyframes neonGlow {
+        0% {
+            text-shadow: 0 0 5px #ff0469f7, 0 0 10px #ff0469f7, 0 0 20px #ff0469f7, 0 0 40px #ff0469f7;
+        }
+        50% {
+            text-shadow: 0 0 10px #45e82c, 0 0 20px #45e82c, 0 0 30px #45e82c, 0 0 50px #45e82c;
+        }
+        100% {
+            text-shadow: 0 0 5px #ff0469f7, 0 0 10px #ff0469f7, 0 0 20px #ff0469f7, 0 0 40px #ff0469f7;
+        }
+    }
