@@ -150,3 +150,36 @@ body {
 .footer i {
   color: var(--pink-color);
 }
+
+@media (max-width: 425px) {
+  body {
+    flex-direction: column;
+  }
+
+  .photo {
+    margin-top: 3rem;
+  }
+
+  .photo h1 {
+    font-size: 3rem;
+    margin-left: -6%;
+  }
+
+  .photo-strip {
+    width: 247px;
+  }
+
+  .photo-strip p {
+    font-size: 0.8rem;
+  }
+
+  .color-options {
+    margin-top: 5px;
+  }
+
+  .controls button {
+    height: 40px;
+    width: 125px;
+    font-size: 1rem;
+  }
+}

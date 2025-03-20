@@ -150,40 +150,6 @@ h3 {
   color: var(--pink-color);
 }
 
-@media (max-width: 1280px) {
-  #flower {
-    top: 35%;
-    left: 15%;
-  }
-  #strawberry {
-    top: 48%;
-    right: 15%;
-  }
-}
-
-@media (max-width: 1050px) {
-  #flower {
-    top: 35%;
-    left: 11%;
-  }
-  #strawberry {
-    top: 48%;
-    right: 13%;
-  }
-  h1 {
-    font-size: 3.5rem;
-  }
-  h3 {
-    font-size: 1.3rem;
-  }
-  #start-btn {
-    width: 117px;
-    height: 35px;
-    line-height: 30px;
-    font-size: 1rem;
-  }
-}
-
 @media (max-width: 425px) {
   h1 {
     font-size: 2rem;
@@ -209,7 +175,7 @@ h3 {
     top: 39%;
     left: 9%;
   }
-  
+
   #strawberry {
     top: 49%;
     right: 13%;
