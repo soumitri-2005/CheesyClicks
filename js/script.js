@@ -9,7 +9,10 @@ let photos = [];
 let currentFilters = [];
 let isMirrored = false;
 
+// to grant permission
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  //  "navigator" is a object in the browser. It provides access to the media devices (such as cameras and microphones) connected to the user's computer. 
+  // "getUserMedia" method prompts the user for permission to use a media input, such as a camera or microphone, and returns a Promise that resolves to a MediaStream object if the user grants permission.
   navigator.mediaDevices
     .getUserMedia({ video: true })
     .then((stream) => (video.srcObject = stream))
@@ -25,6 +28,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.getAttribute("data-filter");
+    // accessing the data-filter attribute from index.html
     if (currentFilters.includes(filter)) {
       currentFilters = currentFilters.filter((f) => f !== filter);
     } else {

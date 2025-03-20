@@ -149,3 +149,14 @@ h3 {
 .footer i {
   color: var(--pink-color);
 }
+
+@media (max-width: 1150px) {
+  #flower {
+    top: 34%;
+    left: 14%;
+  }
+  #strawberry {
+    top: 48%;
+    right: 14%;
+  }
+}

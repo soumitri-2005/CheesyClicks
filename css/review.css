@@ -39,7 +39,8 @@ body {
   rotate: -90deg;
   margin-top: -88%;
   margin-top: -88%;
-  margin-right: -14%;}
+  margin-right: -14%;
+}
 
 .photo-strip {
   width: 275px;
@@ -67,13 +68,13 @@ body {
     opacity: 1;
   }
   50% {
-    transform: translateY(-30px); 
+    transform: translateY(-30px);
   }
   70% {
     transform: translateY(0px);
   }
   85% {
-    transform: translateY(-10px); 
+    transform: translateY(-10px);
   }
   100% {
     transform: translateY(0px);
