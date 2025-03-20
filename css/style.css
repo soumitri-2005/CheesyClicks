@@ -191,3 +191,57 @@ video {
       0 0 40px #ff0469f7;
   }
 }
+
+@media (max-width: 425px) {
+  body {
+    flex-direction: column;
+  }
+
+  video {
+    width: 95%;
+  }
+
+  .video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttons #capture,
+  #review {
+    height: 47px;
+    width: 47px;
+    font-size: 1.1rem;
+  }
+
+  .filter-message p {
+    font-size: 2.5rem;
+  }
+
+  .filter-message #second {
+    font-size: 1.2rem;
+  }
+
+  .filter-options {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .filter-option {
+    margin-top: -9px;
+  }
+
+  .filter-btn {
+    height: 40px;
+    width: 125px;
+    line-height: 7px;
+  }
+  
+  .imos {
+    display: none;
+  }
+  
+  .countdown {
+    font-size: 1.7rem;
+  }
+}
