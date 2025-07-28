@@ -1,7 +1,1 @@
-﻿# CheesyClicks
 
-<h2>Project sample:</h2>
-
-![Untitled Project](https://github.com/user-attachments/assets/af09232f-60de-402a-9ec7-18459eee9ba3)
-![Untitled Project (1)](https://github.com/user-attachments/assets/5b93d322-b3f3-429a-a328-d53a82cb5433)
-![Untitled Project (2)](https://github.com/user-attachments/assets/e64f22ce-87f7-4bb9-b708-05941a6d644b)
